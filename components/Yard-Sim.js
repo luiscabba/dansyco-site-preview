@@ -536,10 +536,10 @@ class Component extends DCLogic {
       var lines = YS_TIPS[hov];
       if (!lines && hit && /^b\d/.test(hov)) {
         var s = sc.status[hit.berth - 1];
-        lines = ['Berth ' + hit.berth + ' · ' + s.vessel, s.stage + ' · slipway to 5,000 DWT'];
+        lines = ['Berth ' + hit.berth + ' · ' + s.vessel, s.stage + ' · slipway to 20,000 DWT'];
       }
       if (!lines && hit && /^float/.test(hov)) lines = ['New ' + YS_NAME[hit.vessel].toLowerCase(), 'Launched from Berth ' + hit.berth];
-      if (!lines && /^b\d$/.test(hov)) lines = ['Berth ' + hov.slice(1), 'Building slipway to 5,000 DWT'];
+      if (!lines && /^b\d$/.test(hov)) lines = ['Berth ' + hov.slice(1), 'Building slipway to 20,000 DWT'];
       if (lines && lines[0]) {
         var anchor = hit ? hit.tip : null;
         if (!anchor) { YS_STATIC.polys.forEach(function (p) { if (p.id === hov && !anchor) anchor = st.hp || [YS_W / 2, YS_H / 2]; }); }

@@ -581,9 +581,9 @@ class Component extends DCLogic {
       var hit = null;
       sc.objs.forEach(function (o) { if (o.id === hov) hit = o; });
       var lines = YS_TIPS[hov];
-      if (!lines && hit && /^b\d/.test(hov)) { var s0 = sc.status[hit.berth - 1]; lines = ['Berth ' + hit.berth + ' · ' + s0.vessel, s0.stage + ' · slipway to 5,000 DWT']; }
+      if (!lines && hit && /^b\d/.test(hov)) { var s0 = sc.status[hit.berth - 1]; lines = ['Berth ' + hit.berth + ' · ' + s0.vessel, s0.stage + ' · slipway to 20,000 DWT']; }
       if (!lines && hit && /^float/.test(hov)) lines = ['New ' + YS_NAME[hit.vessel].toLowerCase(), 'Launched from Berth ' + hit.berth];
-      if (!lines && /^b\d$/.test(hov)) lines = ['Berth ' + hov.slice(1), 'Building slipway to 5,000 DWT'];
+      if (!lines && /^b\d$/.test(hov)) lines = ['Berth ' + hov.slice(1), 'Building slipway to 20,000 DWT'];
       if (lines && hit) {
         var a = toScreen(hit.tip);
         if (a[0] > -20 && a[0] < YS_W + 20 && a[1] > -20 && a[1] < YS_H + 20) {
