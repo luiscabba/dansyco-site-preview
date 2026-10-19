@@ -1,0 +1,46 @@
+/* Phone layout fixes, applied on top of the design boards. */
+html{-webkit-text-size-adjust:100%}
+@media (max-width: 720px){
+  /* Header: logo and quote button on one row, section links on a second scrolling row */
+  header > div{position:relative;flex-wrap:wrap !important;row-gap:10px !important;padding:12px 16px 0 !important}
+  header > div > a:first-child{gap:10px !important}
+  header > div > a:first-child img{height:32px !important}
+  header > div > a:first-child > span > span:first-child{font-size:18px !important}
+  header > div > a:first-child > span > span:last-child{display:none}
+  header nav{width:100%;flex-wrap:nowrap !important;overflow-x:auto;gap:22px !important;padding:4px 0 12px;font-size:15px !important;scrollbar-width:none}
+  header nav::-webkit-scrollbar{display:none}
+  header nav a{white-space:nowrap}
+  header nav .btn-red{position:absolute;top:10px;right:16px;padding:9px 12px !important;font-size:13px}
+
+  /* Yard facts: 2 x 2 instead of one tall column */
+  section[aria-label="Yard facts"] > div:nth-child(4){grid-template-columns:1fr 1fr !important;gap:22px 16px !important}
+
+  /* Vessel picker: compact 2-column grid, every vessel visible */
+  .v2-list{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;overflow:visible !important;padding-bottom:0 !important}
+  .v2-list .tab{flex:none !important;min-height:52px;padding:10px 12px !important}
+  .v2-list .tab > span:first-child{display:none !important}
+  .v2-list .tab b{font-size:15px !important;line-height:1.2}
+  .v2-list .tab b + span{display:none !important}
+
+  /* Build stage controls wrap instead of overflowing */
+  div:has(> label > input[type=range]){flex-wrap:wrap !important;row-gap:8px !important}
+  div:has(> label > input[type=range]) > label{flex:1 1 120px}
+  div:has(> label > input[type=range]) input[type=range]{width:100% !important}
+
+  /* Delivered vessels and other vessels: swipeable row instead of a long column */
+  #delivered > div > div:nth-child(2), div:has(> .vcard){display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px !important;margin:0 -24px;padding:0 24px 8px;scroll-padding:0 24px;scrollbar-width:none}
+  #delivered > div > div:nth-child(2)::-webkit-scrollbar, div:has(> .vcard)::-webkit-scrollbar{display:none}
+  #delivered .v2-fleet, .vcard{flex:0 0 78% !important;scroll-snap-align:start}
+  #delivered .v2-fleet .ph, .vcard .ph{height:200px}
+
+  /* Build steps: number beside the text, no empty card height */
+  .stepc{min-height:0 !important;flex:1 1 100% !important;display:grid !important;grid-template-columns:52px 1fr;column-gap:14px;row-gap:2px !important;align-items:start;padding:16px 18px !important}
+  .stepc > span:first-child{grid-row:span 2;font-size:44px !important}
+
+  /* Built Here photos: shorter frame */
+  figure.zoom[style*="min-height: 440px"]{min-height:300px !important}
+
+  /* Live yard: crop in so the boats read on a phone */
+  #yard > div > div:nth-child(2){overflow:hidden}
+  #yard > div > div:nth-child(2) svg[role=img]{width:200% !important;max-width:none !important;margin-left:-50%}
+}
